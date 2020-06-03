@@ -3,6 +3,7 @@ import 'package:chaveirinho_flutter_v1_17_2/calculadora_imc.dart';
 import 'package:chaveirinho_flutter_v1_17_2/contador_de_pessoas.dart';
 import 'package:chaveirinho_flutter_v1_17_2/conversor_de_moeda.dart';
 import 'package:chaveirinho_flutter_v1_17_2/cronometro.dart';
+import 'package:chaveirinho_flutter_v1_17_2/jogo_teste.dart';
 import 'package:chaveirinho_flutter_v1_17_2/lista.dart';
 import 'package:chaveirinho_flutter_v1_17_2/pergunte.dart';
 import 'package:chaveirinho_flutter_v1_17_2/simlpes_cronometro.dart';
@@ -129,10 +130,12 @@ class _HomeState extends State<Home> {
                   ),
                   Card(
                     child: ListTile(
-                      title: Text(""),
+                      title: Text("Jogo Teste", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
                       leading: FlutterLogo(size: 50,),
                       trailing: Icon(Icons.touch_app),
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Jogo()));
+                      },
                     ),
                   ),
                   Card(
