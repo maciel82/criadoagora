@@ -3,7 +3,7 @@ import 'package:chaveirinho_flutter_v1_17_2_/calculadora_imc.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/contador_de_pessoas.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/conversor_de_moeda.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/cronometro.dart';
-import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste.dart';
+import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/jogo_teste.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/lista.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/pergunte.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/simlpes_cronometro.dart';

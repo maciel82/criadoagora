@@ -1,3 +1,4 @@
+import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/questoes.dart';
 import 'package:flutter/material.dart';
 
 class Jogo extends StatefulWidget {
@@ -32,9 +33,11 @@ class _JogoState extends State<Jogo> {
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       child: CircleAvatar(
-                        child: Text(lista[index]),
-                        
-                      )
+                        child: Text(lista[index]),                        
+                      ),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => QuestoesJogoTeste()));
+                      },
                     );
                   },
                 ),
