@@ -1,14 +1,12 @@
 class Valida{
 
-  int _vList;
+  String _v = "";
 
-  List list = ["primeira", "segunda", "terceira"];
-
-  set setList(int vList){
-    _vList = vList;
+  set setList(String valor){
+    _v = valor;
   }
 
   String get getList{
-    return list[_vList];
+    return _v;
   }
 }

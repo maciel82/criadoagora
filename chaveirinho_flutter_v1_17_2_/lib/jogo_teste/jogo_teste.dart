@@ -9,12 +9,17 @@ class Jogo extends StatefulWidget {
 
 class _JogoState extends State<Jogo> {
 
-  Valida _valida = Valida();
+  Valida valida = Valida();
 
   int valorList;
+  String vlist;
+  List listaP = ["1", "2", "3"];
 
-  List lista = ["1", "2", "3", "4", "5", "6", "7", "8",
-   "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+  List listaQuestoes = ["primeira", "segunda", "terceira"];
+
+  void setList(){
+    
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -34,19 +39,22 @@ class _JogoState extends State<Jogo> {
                     mainAxisSpacing: 10.0,
                     crossAxisSpacing: 10.0
                   ),
-                  itemCount: lista.length,
+                  itemCount: listaP.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       child: CircleAvatar(
-                        child: Text(lista[index]),                        
+                        child: Text(listaP[index]),                        
                       ),
                       onTap: (){
                         //pega valor da posição da lista
-                        String vList = lista[index];
+                        String vList = listaP[index];
                         valorList = int.parse(vList) - 1;
-                        _valida.setList = valorList;                        
+                        vlist = listaQuestoes[valorList];
+                        valida.setList = vlist;
+                        
+                        print("vlist: $vlist");                        
                         Navigator.push(context, MaterialPageRoute(builder: (context) => QuestoesJogoTeste()));
-                        print("v: ");
+                        print("v: $valorList");
                       },
                     );
                   },

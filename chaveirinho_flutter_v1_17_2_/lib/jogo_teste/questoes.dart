@@ -8,14 +8,17 @@ class QuestoesJogoTeste extends StatefulWidget {
 
 class _QuestoesJogoTesteState extends State<QuestoesJogoTeste> {
 
-  Valida _valida = Valida();
+  Valida valida = Valida();
 
-  int _vList;
+  String list = "";
 
-  List list = ["primeira", "segunda", "terceira"];
-
-  set setList(int vList){
-    _vList = vList;
+  @override
+  void initState() {
+    // TODO: implement initState
+    setState(() {
+      list = valida.getList;
+    });
+    super.initState();
   }
 
   @override
@@ -23,12 +26,10 @@ class _QuestoesJogoTesteState extends State<QuestoesJogoTeste> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Image.asset(
-            "mages/questoes.jpeg",
-            fit: BoxFit.cover,
-          ),
           Container(
-            child: Text("", style: TextStyle(fontSize: 30.0),),
+            child: Text("$list", style: TextStyle(fontSize: 30.0),
+            
+            ),
           )
         ],
       ),
