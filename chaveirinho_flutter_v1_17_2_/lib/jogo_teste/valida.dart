@@ -1,6 +1,6 @@
 class Valida{
 
-  String _v = "";
+  String _v;
 
   set setList(String valor){
     _v = valor;

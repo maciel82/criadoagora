@@ -2,22 +2,26 @@ import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/valida.dart';
 import 'package:flutter/material.dart';
 
 class QuestoesJogoTeste extends StatefulWidget {
+  String nome;
+  QuestoesJogoTeste(this.nome);
+
   @override
-  _QuestoesJogoTesteState createState() => _QuestoesJogoTesteState();
+  _QuestoesJogoTesteState createState() => _QuestoesJogoTesteState(this.nome);
 }
 
 class _QuestoesJogoTesteState extends State<QuestoesJogoTeste> {
 
-  Valida valida = Valida();
+  //Valida valida = Valida();
+
+  _QuestoesJogoTesteState(this.list);
 
   String list = "";
 
   @override
   void initState() {
-    // TODO: implement initState
-    setState(() {
+    /*setState(() {
       list = valida.getList;
-    });
+    });*/
     super.initState();
   }
 
@@ -27,8 +31,9 @@ class _QuestoesJogoTesteState extends State<QuestoesJogoTeste> {
       body: Stack(
         children: <Widget>[
           Container(
-            child: Text("$list", style: TextStyle(fontSize: 30.0),
-            
+            child: Center(
+              child: Text("$list", style: TextStyle(fontSize: 30.0),              
+              ),
             ),
           )
         ],

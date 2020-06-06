@@ -1,5 +1,4 @@
 import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/questoes.dart';
-import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/valida.dart';
 import 'package:flutter/material.dart';
 
 class Jogo extends StatefulWidget {
@@ -9,17 +8,11 @@ class Jogo extends StatefulWidget {
 
 class _JogoState extends State<Jogo> {
 
-  Valida valida = Valida();
-
   int valorList;
   String vlist;
   List listaP = ["1", "2", "3"];
 
   List listaQuestoes = ["primeira", "segunda", "terceira"];
-
-  void setList(){
-    
-  }
   
   @override
   Widget build(BuildContext context) {
@@ -50,10 +43,9 @@ class _JogoState extends State<Jogo> {
                         String vList = listaP[index];
                         valorList = int.parse(vList) - 1;
                         vlist = listaQuestoes[valorList];
-                        valida.setList = vlist;
                         
                         print("vlist: $vlist");                        
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => QuestoesJogoTeste()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => QuestoesJogoTeste(this.vlist)));
                         print("v: $valorList");
                       },
                     );
