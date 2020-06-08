@@ -140,10 +140,32 @@ class _HomeState extends State<Home> {
                   ),
                   Card(
                     child: ListTile(
-                      title: Text(""),
+                      title: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
                       leading: FlutterLogo(size: 50,),
                       trailing: Icon(Icons.touch_app),
-                      onTap: (){},
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => TesteCheck()));
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
+                      leading: FlutterLogo(size: 50,),
+                      trailing: Icon(Icons.touch_app),
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Jogo()));
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
+                      leading: FlutterLogo(size: 50,),
+                      trailing: Icon(Icons.touch_app),
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Jogo()));
+                      },
                     ),
                   )
                 ],
