@@ -75,6 +75,7 @@ class _BuscadorGifsState extends State<BuscadorGifs> {
               onSubmitted: (text){
                 setState(() {
                   search = text;
+                  offset = 0;
                 });
               },
               decoration: InputDecoration(
@@ -112,6 +113,14 @@ class _BuscadorGifsState extends State<BuscadorGifs> {
     );
   }
 
+  int _getCount(List data){
+    if (search == null) {
+      return data.length;
+    }else{
+      return data.length + 1;
+    }
+  }
+
   Widget _createGifTable(BuildContext context, AsyncSnapshot snapshot){
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -119,14 +128,33 @@ class _BuscadorGifsState extends State<BuscadorGifs> {
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0
       ),
-      itemCount: snapshot.data["data"].length,
+      itemCount: _getCount(snapshot.data["data"]),
       itemBuilder: (context, index){
-        return GestureDetector(
-          child: Image.network(snapshot.data["data"][index]["images"]["fixed_height"]["url"], 
-          height: 300.0,
-          fit: BoxFit.cover,
-          ),
-        );
+        if (search == null || index < snapshot.data["data"].length) {
+          return GestureDetector(
+            child: Image.network(snapshot.data["data"][index]["images"]["fixed_height"]["url"], 
+              height: 300.0,
+              fit: BoxFit.cover,
+            ),
+          );
+        } else {
+          return Container(
+            child: GestureDetector(              
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,               
+                children: <Widget>[                  
+                  Icon(Icons.add, color: Colors.white, size: 50.0,),
+                  Text("Mais imagens", style: TextStyle(fontSize: 20.0, color: Colors.white),)
+                ],
+              ),
+              onTap: (){
+                setState(() {
+                  offset += 19;
+                });
+              }
+            ),
+          );
+        }        
       }
     );
   }
