@@ -1,10 +1,10 @@
 import 'dart:convert';
 
+import 'package:chaveirinho_flutter_v1_17_2_/buscador_gifs/gif_page.dart';
+import 'package:chaveirinho_flutter_v1_17_2_/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-import 'main.dart';
 
 class Gifs extends StatelessWidget {
   @override
@@ -136,6 +136,9 @@ class _BuscadorGifsState extends State<BuscadorGifs> {
               height: 300.0,
               fit: BoxFit.cover,
             ),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => GifPage(snapshot.data["data"][index])));
+            },
           );
         } else {
           return Container(

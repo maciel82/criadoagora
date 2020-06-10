@@ -1,4 +1,4 @@
-import 'package:chaveirinho_flutter_v1_17_2_/buscador_gifs.dart';
+import 'package:chaveirinho_flutter_v1_17_2_/buscador_gifs/buscador_gifs.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/calculadora_imc.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/contador_de_pessoas.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/conversor_de_moeda.dart';
@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
                       leading: FlutterLogo(size: 50,),
                       trailing: Icon(Icons.touch_app),
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Gifs()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Gifs()));
                       },
                     )
                   ),
