@@ -14,6 +14,14 @@ class GifPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(_gifMap["title"]),
         backgroundColor: Colors.black,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.share), 
+            onPressed: (){
+              Share.share(_gifMap["images"]["fixed_height_small"]["url"]);
+            }
+          )
+        ],
       ),
       body: Center(        
         child: Image.network(_gifMap["images"]["fixed_height_small"]["url"]),
