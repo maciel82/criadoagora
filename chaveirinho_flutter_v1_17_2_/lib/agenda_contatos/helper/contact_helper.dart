@@ -92,14 +92,16 @@ class ContactHelper{
 
 class Contact{
   int id;
-  String nome;
+  String name;
   String email;
   String phone;
   String img;
 
+  Contact();
+
   Contact.fromMap(Map map){
     id = map[idColumn];
-    nome = map[nameColumn];
+    name = map[nameColumn];
     email = map[emailColumn];
     phone = map[phoneColumn];
     img = map[imgColumn];
@@ -107,7 +109,7 @@ class Contact{
 
   Map toMap(){
     Map<String, dynamic> map = {
-      nameColumn: nome,
+      nameColumn: name,
       email: email,
       phoneColumn: phone,
       imgColumn: img
@@ -119,6 +121,6 @@ class Contact{
   }
 
   String toString(){
-    return "Contact(id: $id, nome: $nome, email: $email, phone: $phone, img: $img)";
+    return "Contact(id: $id, nome: $name, email: $email, phone: $phone, img: $img)";
   }
 }
