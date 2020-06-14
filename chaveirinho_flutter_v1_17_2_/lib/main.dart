@@ -1,3 +1,4 @@
+import 'package:chaveirinho_flutter_v1_17_2_/agenda_contatos/agenda_contatos.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/buscador_gifs/buscador_gifs.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/calculadora_imc.dart';
 import 'package:chaveirinho_flutter_v1_17_2_/contador_de_pessoas.dart';
@@ -140,11 +141,11 @@ class _HomeState extends State<Home> {
                   ),
                   Card(
                     child: ListTile(
-                      title: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
+                      title: Text("Agenda de Contatos", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
                       leading: FlutterLogo(size: 50,),
                       trailing: Icon(Icons.touch_app),
                       onTap: (){
-                        //Navigator.push(context, MaterialPageRoute(builder: (context) => TesteCheck()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AgendaContatos()));
                       },
                     ),
                   ),
