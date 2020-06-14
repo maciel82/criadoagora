@@ -11,6 +11,17 @@ class Questoes {
     ["sfsdf", "terra"]
   ];
 
+  /* Outro jeito de fazer lista composta(lista bidimencional)
+
+  List<List<String>> list = List();
+  
+  list = [["df", "sdf"],["sdf", "sdff"]];
+  
+  list.add(["soi","tere"]);
+  print(list[2][1]);
+
+  */
+
   var resposta = [
     "mercurio", "venus", "terra"
   ];
