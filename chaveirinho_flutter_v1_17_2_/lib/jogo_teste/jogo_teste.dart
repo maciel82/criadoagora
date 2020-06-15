@@ -1,5 +1,9 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:chaveirinho_flutter_v1_17_2_/jogo_teste/questoes.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Jogo extends StatefulWidget {
   @override
@@ -23,22 +27,32 @@ class _JogoState extends State<Jogo> {
 
   @override
   void initState() {
+    super.initState();
+
+    if (verificaLista == null) {
+      for (var i = 0; i < listaP.length; i++) {            
+        checkList();      
+      }
+    }   
+
+    readData().then((data){
+      setState(() {
+        verificaLista = json.decode(data);
+      });
+    });    
+  }
+
+  checkList() {
     setState(() {
       posListaP = 0;
       Map<String, dynamic> addList = Map();
       addList["title"] = listaP[posListaP];
       verificaLista.add(addList);
+      print(verificaLista);
       addList["ok"] = false;
       verificaLista[0]["ok"] = true;
+      saveData();
     });
-    super.initState();
-  }
-
-  void checkList(){
-    Map<String, dynamic> addList = Map();
-    addList["title"] = listaP[posListaP];
-    verificaLista.add(addList);
-    addList["ok"] = false;
   }
   
   @override
@@ -65,9 +79,9 @@ class _JogoState extends State<Jogo> {
                       child: GestureDetector(
                         child: Stack(
                           children: <Widget>[
-                            verificaLista[0]["ok"]? nonePos0 : lock,
+                            verificaLista[index]["ok"]? nonePos0 : lock,
                             Container(
-                              child: Center(child: Text(verificaLista[index]["title"], style: TextStyle(fontSize: 20.0),)),
+                              child: Center(child: Text(listaP[index], style: TextStyle(fontSize: 20.0),)),
                             )
                           ],
                         ),
@@ -77,7 +91,13 @@ class _JogoState extends State<Jogo> {
                           posListaP = index; //int.parse(vListListaP) - 1;
                           vListQuestoes = listaQuestoes[posListaP];
 
+                          setState(() {
+                            verificaLista[index]["ok"] = true;
+                            saveData();
+                          });                          
+
                           print(posListaP);
+                          print(verificaLista);
                                                                             
                           Navigator.push(context, MaterialPageRoute(builder: (context) => QuestoesJogoTeste(this.vListQuestoes)));                            
                         },
@@ -91,5 +111,26 @@ class _JogoState extends State<Jogo> {
         ],
       )
     );
+  }
+
+  Future<File> _getFile() async {
+    final directory = await getApplicationDocumentsDirectory();
+    return File("${directory.path}/data.json");
+  }
+
+  Future<File> saveData() async {
+    String data = json.encode(verificaLista);
+
+    final file = await _getFile();
+    return file.writeAsString(data);
+  }
+
+  Future readData() async {
+    try {
+      final file = await _getFile();
+
+      return file.readAsString();
+    } catch (e) {
+    }
   }
 }
