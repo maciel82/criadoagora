@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chaveirinho_flutter_v1_19_0__4_1_pre/agenda_contatos/helper/contact_helper.dart';
 import 'package:chaveirinho_flutter_v1_19_0__4_1_pre/agenda_contatos/ui/contact_page.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,13 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    Contact contact = Contact();
-    contact.email = "sdfsdf";
-    contact.name = "ale";
-    contact.phone = "234234235";
-
-    helper.saveContact(contact);
 
     _getAllContacts();
   }
@@ -110,7 +104,8 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   FlatButton(
                     onPressed: (){
-
+                      launch("tel: ${contacts[index]}");
+                      Navigator.pop(context);
                     }, 
                     child: Text("Ligar", style: TextStyle(color: Colors.green),)
                   ),
