@@ -131,14 +131,14 @@ class _ContactPageState extends State<ContactPage> {
                 onPressed: (){
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.cancel)
+                child: Icon(Icons.cancel, color: Colors.red,)
               ),
               FlatButton(
                 onPressed: (){
                   Navigator.pop(context);
                   Navigator.pop(context);
                 },
-                child: Text("sair")
+                child: Icon(Icons.check_circle, color: Colors.green,)
               )
             ],
           );

@@ -91,8 +91,52 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       onTap: (){
-        _showContactPage(contact: contacts[item]);
+        _showOptions(context, item);
       },
+    );
+  }
+
+  _showOptions(BuildContext context, int index){
+    showModalBottomSheet(
+      context: context, 
+      builder: (context){
+        return BottomSheet(
+          onClosing: (){}, 
+          builder: (context){
+            return Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                //mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlatButton(
+                    onPressed: (){
+
+                    }, 
+                    child: Text("Ligar", style: TextStyle(color: Colors.green),)
+                  ),
+                  FlatButton(
+                    onPressed: (){
+                      Navigator.pop(context);
+                      _showContactPage(contact: contacts[index]);                      
+                    }, 
+                    child: Text("Editar", style: TextStyle(color: Colors.blue))
+                  ),
+                  FlatButton(
+                    onPressed: (){
+                      helper.deleteContact(contacts[index].id);
+                      setState(() {
+                        contacts.removeAt(index);
+                        Navigator.pop(context);
+                      });
+                    }, 
+                    child: Text("Exluir", style: TextStyle(color: Colors.red))
+                  )
+                ],
+              ),
+            );
+          },
+        );
+      }
     );
   }
 
