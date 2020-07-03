@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "336149224462",
+    "firebase_url": "https://chat-9ff0d.firebaseio.com",
+    "project_id": "chat-9ff0d",
+    "storage_bucket": "chat-9ff0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336149224462:android:a74382aae553ad2375705f",
+        "android_client_info": {
+          "package_name": "com.cursoflutter.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336149224462-7k069ci5c1ig2pnm4qi4q5uvg6roa0v3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cursoflutter.chat",
+            "certificate_hash": "8bee9d565922cd3325df745bc2a57ed6b0de0c05"
+          }
+        },
+        {
+          "client_id": "336149224462-17eh2r4m80spvmr1nn9qt5e2qquio1bb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCgAaHKgy9h4V-5lLXVjJ-osKcBa0Kdp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336149224462-17eh2r4m80spvmr1nn9qt5e2qquio1bb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
