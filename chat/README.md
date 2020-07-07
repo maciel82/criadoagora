@@ -1,6 +1,6 @@
 # chat
 
-A new Flutter project.
+A new Flutter project. Flutter: 1.17.4
 
 ## Getting Started
 
