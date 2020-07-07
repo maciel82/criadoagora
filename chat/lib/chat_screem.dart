@@ -36,11 +36,38 @@ class _ChatScreemState extends State<ChatScreem> {
     return Scaffold(
       appBar: AppBar(
         title: Text("oi"),
-        actions: <Widget>[
+        elevation: 0,
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: StreamBuilder<QuerySnapshot>(
+              stream: Firestore.instance.collection('messages').snapshots(),
+              builder: (context, snapshot){
+                switch(snapshot.connectionState){
+                  case ConnectionState.none:
+                  case ConnectionState.waiting:
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  default:
+                    List<DocumentSnapshot> document = snapshot.data.documents;
 
-      ],),
-      body: TextComposer(
-        _sendMessage       
+                    return ListView.builder(
+                      itemCount: document.length,
+                      reverse: true,
+                      itemBuilder: (context, index){
+                        return Text(document[index].data['text']);
+                      }
+                    );
+                }   
+              }
+            )
+          ),
+          TextComposer(
+            _sendMessage       
+          ),
+        ],
       ),
     );
   }
